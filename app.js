@@ -46,7 +46,6 @@ boxes.forEach((box) => {
             msgContainer.classList.remove("hide");
             disableBoxes();
 
-
         }
     });
 });
@@ -72,11 +71,6 @@ const showWinner= (winner) => {
 
 };
 
-
-
-
-
-
 const checkWinner= () => {
     for(let pattern of winPatterns) {
         let pos1Val = boxes[pattern[0]].innerText;
@@ -86,9 +80,11 @@ const checkWinner= () => {
         if(pos1Val !="" && pos2Val !="" && pos3Val !="") {
             if(pos1Val === pos2Val && pos2Val === pos3Val) {
                 showWinner(pos1Val);
+                return true;
             }
         }
     }
+    return false;
 };
 
 newGameBtn.addEventListener("click", resetGame);
